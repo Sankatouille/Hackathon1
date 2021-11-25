@@ -8,6 +8,8 @@
  */
 
 namespace App\Controller;
+use App\Model\HomeManager;
+use App\Model\ArtisteManager;
 
 class HomeController extends AbstractController
 {
@@ -21,6 +23,13 @@ class HomeController extends AbstractController
      */
     public function index()
     {
-        return $this->twig->render('Home/index.html.twig');
+        $artiste = new ArtisteManager();
+        $artistes = $artiste->selectAll();
+
+
+        return $this->twig->render('Home/index.html.twig' , ["artistes" => $artistes ]);
+
     }
+
+
 }
