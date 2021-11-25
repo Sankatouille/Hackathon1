@@ -41,6 +41,7 @@ abstract class AbstractManager
         return $this->pdo->query($query)->fetchAll();
     }
 
+
     /**
      * Get one row from database by ID.
      *
@@ -65,4 +66,6 @@ abstract class AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    
 }
