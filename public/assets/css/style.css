@@ -1,4 +1,6 @@
 
+/* Page d'acceuil */
+
 body{
     background-image:url("../images/HW.png");
     background-size: cover;
@@ -15,9 +17,12 @@ body{
     font-style: italic;
 }
 
+/* Partie Artistes */
+
+
 #jouer{
     border: solid 1px whitesmoke;
-    border-radius: 5px;
+    border-radius: 10px;
     background:whitesmoke;
     height: 50px;
     width: 200px;
@@ -25,6 +30,9 @@ body{
     margin-top:30px ;
     text-align: center;
     cursor: pointer;
+    font-size: 20px;
+    font-style: italic;
+    color:#1C2833;
 }
 
 #jouer:hover {
@@ -33,13 +41,8 @@ body{
     box-shadow: 0 8px 16px 0 #ff1616;
 }
 
-#questions{
-    display: none;
-}
-
 li{
     display:flex;
-    /* flex-direction:row; */
     color: whitesmoke;
     font-size:20px;
 }
@@ -51,10 +54,17 @@ li{
     border:2px  #ffbd59 solid;
     width:760px;
     box-shadow: 0 8px 20px 0 #85C1E9 ;
-    margin-left:20px
-
-
+    margin-left:20px;
+    border-radius:20px;
 }
+
+
+/* Partie Questions */
+
+#questions{
+    display: none;
+}
+
 
 .questions{
     display: none;
@@ -69,7 +79,7 @@ li{
 
 #oui, #non{
     border: solid 1px whitesmoke;
-    border-radius: 5px;
+    border-radius: 10px;
     background:whitesmoke;
     height: 50px;
     width: 200px;
@@ -77,6 +87,9 @@ li{
     margin-top:30px ;
     text-align: center;
     cursor: pointer;
+    font-size: 20px;
+    font-style: italic;
+    color:#1C2833;
 }
 
 
