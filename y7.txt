@@ -1,0 +1,21 @@
+public function selectByReponse(array $reponses)
+    {
+        // $statement = $this->pdo->prepare("SELECT * FROM artiste ");
+        $where = "where ";
+        $i=0;
+        foreach($reponses as $key => $reponse) {
+            if($i=0) {
+                $where .= "$key = :$reponse ";
+            }
+            else {
+                $where .= "AND $key=:$reponse ";
+            }
+            $i++;
+        }
+	$test = "SELECT * FROM artiste" . "$where";
+	var_dump($test);
+	die();
+        $query = $this->pdo->prepare("SELECT * FROM artiste" . "$where");
+        
+        return $this->pdo->query($query)->fetchAll();
+    }
