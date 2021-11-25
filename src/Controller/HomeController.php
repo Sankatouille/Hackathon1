@@ -21,6 +21,12 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
+            session_start();    
+            $_SESSION["lol"] = "lol";
+            header('Location:/game/jeu');
+        }
+        
         return $this->twig->render('Home/index.html.twig');
     }
 }
