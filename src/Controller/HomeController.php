@@ -10,6 +10,7 @@
 namespace App\Controller;
 use App\Model\HomeManager;
 use App\Model\ArtisteManager;
+use App\Model\QuestionsManager;
 
 class HomeController extends AbstractController
 {
@@ -26,9 +27,10 @@ class HomeController extends AbstractController
         $artiste = new ArtisteManager();
         $artistes = $artiste->selectAll();
 
+        $question = new QuestionsManager();
+        $question1 = $question->selectOneById(1);
 
-        return $this->twig->render('Home/index.html.twig' , ["artistes" => $artistes ]);
-
+        return $this->twig->render('Home/index.html.twig' , ["artistes" => $artistes , "question1" => $question1]);
     }
 
 
