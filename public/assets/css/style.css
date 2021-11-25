@@ -10,15 +10,20 @@ body{
     color:whitesmoke;
     margin-top: 350px;
     margin-left: 20px;
-    font-size:25px;
+    font-size:20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
+
+
+
 
 #jouer{
 border: solid 1px whitesmoke;
 border-radius: 5px;
-background: none;
+background:whitesmoke;
 height: 50px;
 width: 200px;
 margin-left: 250px;
 margin-top:100px ;
 }
+
