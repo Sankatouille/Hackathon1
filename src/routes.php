@@ -11,7 +11,11 @@ return [
     'game/jeu' => ['GameController', 'game', ['id']],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
+
+    'items' => ['HomeController', 'index',],
+    'items/edit' => ['HomeController', 'edit', ['id']],
+
     'items/show' => ['ItemController', 'show', ['id']],
-    'items/add' => ['ItemController', 'add',],
-    'items/delete' => ['ItemController', 'delete',],
+    'items/add' => ['HomeController', 'add',],
+    'items/delete' => ['HomeController', 'delete',],
 ];

@@ -2,11 +2,14 @@
 
 namespace App\Model;
 
+
 use PDO;
+
 use App\Model\AbstractManager;
 
 class HomeManager extends AbstractManager
 {
+
     public function selectByReponses(array $reponses)
     {
         // $statement = $this->pdo->prepare("SELECT * FROM artiste ");
@@ -31,4 +34,5 @@ class HomeManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
+
 }

@@ -8,6 +8,9 @@
  */
 
 namespace App\Controller;
+use App\Model\HomeManager;
+use App\Model\ArtisteManager;
+use App\Model\QuestionsManager;
 
 use App\Model\HomeManager;
 
@@ -28,6 +31,7 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
             // session_start();    
             // $_SESSION["lol"] = "lol";
@@ -39,6 +43,16 @@ class HomeController extends AbstractController
             die();
         }
         
-        return $this->twig->render('Home/index.html.twig');
+
+        $artiste = new ArtisteManager();
+        $artistes = $artiste->selectAll();
+
+        $question = new QuestionsManager();
+        $question1 = $question->selectOneById(1);
+
+        return $this->twig->render('Home/index.html.twig' , ["artistes" => $artistes , "question1" => $question1]);
+
     }
+
+
 }
