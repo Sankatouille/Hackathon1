@@ -31,6 +31,7 @@ class HomeController extends AbstractController
      */
     public function index()
     {
+
         $artiste = new ArtisteManager();
         $artistes = $artiste->selectAll();
 
