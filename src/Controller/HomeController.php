@@ -55,9 +55,10 @@ class HomeController extends AbstractController
         // }
         $question = [];
 
-        $test = ["non", "oui", "non", "non"];
+        $test = ["non", "oui", "non", "oui"];
         
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {   
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            //question est-ce un groupe ?   
             if (!isset($_SESSION["reponses"]["is_band"])) {
                 if (/*isset($_POST["oui"])*/$test[0]=="oui") {
                     $_SESSION["reponses"]["is_band"] = 1;
@@ -69,6 +70,7 @@ class HomeController extends AbstractController
                 }
                 //header('Location:/game/ask');
             }
+            //question le groupe est il en activté ?
             if (!isset($_SESSION["reponses"]["is_activ"]) && $_SESSION["reponses"]["is_band"]==1) {
                 if (/*isset($_POST["oui"])*/$test[1]=="oui") {
                     $_SESSION["reponses"]["is_activ"] = 1;
@@ -78,6 +80,7 @@ class HomeController extends AbstractController
                 }
                 $question = $this->questionModel->selectOneById(5);
             }
+            //question est-ce une femme ?
             if(!isset($_SESSION["reponses"]["genre"]) && $_SESSION["reponses"]["is_band"]==0) {
                 if (/*isset($_POST["oui"])*/$test[1]=="oui") {
                     $_SESSION["reponses"]["genre"] = "Femme";
@@ -87,6 +90,7 @@ class HomeController extends AbstractController
                 }
                 $question = $this->questionModel->selectOneById(3);
             } 
+            //question le personnage est-il décédé ????
             if (!isset($_SESSION["reponses"]["is_dead"]) && $_SESSION["reponses"]["is_band"]==0) {
                 if (/*isset($_POST["oui"])*/$test[2]=="oui") {
                     $_SESSION["reponses"]["is_dead"] = 1;
@@ -96,21 +100,115 @@ class HomeController extends AbstractController
                 }
                 $question = $this->questionModel->selectOneById(5);          
             }
-            if (/*!isset($_SESSION["reponses"]["style"])*/1==1) {
+            //question quel est le style de musique ?
+            if (!isset($_SESSION["reponses"]["style"])) {
                 $styles = ["Pop", "Rap", "Rock", "Hiphop", "Electro", "R&B"];
                 $key = array_rand($styles);
                 $style = $styles[$key];
                    
                 if (/*isset($_POST["oui"])*/$test[3]=="oui") {
-                    $_SESSION["reponses"]["style"] = $style;
+                    $_SESSION["reponses"]["style"] = "$style";
                 }
                 else {
                     $_SESSION["reponses"]["style"] = "!".$style;
                 }
                 $testSelect = $this->model->selectByReponses($_SESSION["reponses"]);
+                
+                if(count($testSelect)==1) {
+                    var_dump("j'ai trouvé ! tu pense a ".$testSelect["nom"]."!");
+                    die();
+                }
+                else {
+                    echo"haha perdu";
+                }
+                $question = $this->questionModel->selectOneById(5);          
+            }
+            //question quelle est sa langue
+            if (/*!isset($_SESSION["reponses"]["langue"])*/1==1) {
+                $langues = ["Francais", "Anglais"];
+                $key = array_rand($langues);
+                $langue = $langues[$key];
+                   
+                if (/*isset($_POST["oui"])*/$test[4]=="oui") {
+                    $_SESSION["reponses"]["langue"] = "$langue";
+                }
+                else {
+                    $_SESSION["reponses"]["langue"] = "!".$langue;
+                }
+                $testSelect = $this->model->selectByReponses($_SESSION["reponses"]);
+                
                 var_dump($testSelect);
                 var_dump($_SESSION["reponses"]);
-                die();
+                if(count($testSelect)==1) {
+                    var_dump("j'ai trouvé ! tu pense a ".$testSelect["nom"]."!");
+                    die();
+                }
+                else {
+                    echo"haha";
+                }
+                $question = $this->questionModel->selectOneById(5);          
+            }
+
+            // //question quelle est sa nationalité 
+            if (/*!isset($_SESSION["reponses"]["style"])*/1==1) {
+                $nationalites = ["Anglaise", "Américaine", "Francaise", "Belge"];
+                $key = array_rand($nationalites);
+                $nationalite = $nationalites[$key];
+                   
+                if (/*isset($_POST["oui"])*/$test[5]=="oui") {
+                    $_SESSION["reponses"]["style"] = "$nationalite";
+                }
+                else {
+                    $_SESSION["reponses"]["style"] = "!".$nationalite;
+                }
+                $testSelect = $this->model->selectByReponses($_SESSION["reponses"]);
+                
+                var_dump($testSelect);
+                var_dump($_SESSION["reponses"]);
+                if(count($testSelect)==1) {
+                    var_dump("j'ai trouvé ! tu pense a ".$testSelect["nom"]."!");
+                    die();
+                }
+                else {
+                    
+                    echo"haha";
+                }
+                $question = $this->questionModel->selectOneById(5);          
+            }
+
+            // //question est son age 
+            if (/*!isset($_SESSION["reponses"]["style"])*/1==1) {
+                $ages = [20, 30, 40];
+                $key = array_rand($ages);
+                $age = $ages[$key];
+                $resultatFinal = [];
+
+                if (/*isset($_POST["oui"])*/$test[6]=="oui") {
+                    $testSelect = $this->model->selectByReponses($_SESSION["reponses"]);
+                    foreach($testSelect as $result) {
+                        if ($result["age"]>$age) {
+                            $resultatFinal .= $result;
+                        }
+                    }
+                }
+                else {
+                    $testSelect = $this->model->selectByReponses($_SESSION["reponses"]);
+                    foreach($testSelect as $result) {
+                        if ($result["age"]<=$age) {
+                            $resultatFinal .= $result;
+                        }
+                    }
+                }
+                
+                var_dump($resultatFinal);
+                var_dump($_SESSION["reponses"]);
+                if(count($resultatFinal)==1) {
+                    var_dump("j'ai trouvé ! tu pense a ".$testSelect["nom"]."!");
+                    die();
+                }
+                else {
+                    echo"haha";
+                }
                 $question = $this->questionModel->selectOneById(5);          
             }
 
