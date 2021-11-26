@@ -2,7 +2,9 @@
 
 namespace App\Model;
 
+
 use PDO;
+
 use App\Model\AbstractManager;
 
 class HomeManager extends AbstractManager
