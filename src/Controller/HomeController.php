@@ -52,7 +52,6 @@ class HomeController extends AbstractController
         // else {
         //     $question = $this->questionModel->selectOneById(2);
         // }
-        
         $question = [];
 
         $test = ["non", "oui", "non", "non"];
