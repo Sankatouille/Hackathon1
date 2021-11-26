@@ -35,19 +35,15 @@
     </ul>
 </div>
 
-<form method="POST">
-
 <div class="questions">
 
-<div id="quest">{{question1.question}}</div>
+<div id="quest1" data-question="{{question1.id}}">{{question1.question}}</div>
 
 <button id="oui">Oui</button>
 <button id="non">Non</button>
 
 </div>
 
-</form>
-
-<button id="jouer">► Jouer</button>
+    <button id="jouer">► Jouer</button>
 
 {% endblock %}
