@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}HackinaWild{% endblock %}
+
+{% block content %}
+
+<form method="POST" action="/game/ask">
+    <div class="questions">
+    {% set lol="r" %}
+    {{dump(lol)}}
+    <div id="quest">{{question.question}}</div>
+
+    <button name = "oui" id="oui">Oui</button>
+    <button name = "non" id="non">Non</button>
+
+    </div>
+</form>
+
+{% endblock %}

@@ -9,5 +9,16 @@
 return [
     '' => ['HomeController', 'index',],
 
+
     'reponse' => ['HomeController', 'reponse' , ['id' , 'reponse']],
+
+    'game/ask' => ['HomeController', 'ask',],
+    // 'items' => ['ItemController', 'index',],
+    // 'items/edit' => ['ItemController', 'edit', ['id']],
+
+    // 'items/show' => ['ItemController', 'show', ['id']],
+    // 'items/add' => ['HomeController', 'add',],
+    // 'items/delete' => ['HomeController', 'delete',],
+
+
 ];
