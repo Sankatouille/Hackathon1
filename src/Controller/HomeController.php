@@ -12,8 +12,6 @@ use App\Model\HomeManager;
 use App\Model\ArtisteManager;
 use App\Model\QuestionsManager;
 
-use App\Model\HomeManager;
-
 class HomeController extends AbstractController
 {
     public function __construct()
@@ -54,5 +52,8 @@ class HomeController extends AbstractController
 
     }
 
-
-}
+    // public function ask()
+    // {
+    //     $question = new QuestionsManager();
+    //     $question->selectOneById(2)
+    }         
