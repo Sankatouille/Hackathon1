@@ -35,15 +35,25 @@
     </ul>
 </div>
 
-<form method="POST" action="game/ask">
-    <div class="questions">
 
-    <div id="quest">{{question1.question}}</div>
-        <button name = "oui" id="oui">Oui</button>
-        <button name = "non" id="non">Non</button>
-    </div>
-</form>
+
+
+<div class="questions">
+
+<div id="quest1" data-question="{{question1.id}}">{{question1.question}}</div>
+
+<button id="oui">Oui</button>
+<button id="non">Non</button>
+
+</div>
+
     <button id="jouer">► Jouer</button>
+
+
+
+
+
+
 
 
 
