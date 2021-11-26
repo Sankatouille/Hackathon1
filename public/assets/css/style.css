@@ -1,4 +1,6 @@
 
+/* Page d'acceuil */
+
 body{
     background-image:url("../images/HW.png");
     background-size: cover;
@@ -15,16 +17,22 @@ body{
     font-style: italic;
 }
 
+/* Partie Artistes */
+
+
 #jouer{
     border: solid 1px whitesmoke;
-    border-radius: 5px;
+    border-radius: 10px;
     background:whitesmoke;
     height: 50px;
     width: 200px;
-    margin-left: 650px;
-    margin-top:120px ;
+    margin-left: 350px;
+    margin-top:30px ;
     text-align: center;
     cursor: pointer;
+    font-size: 20px;
+    font-style: italic;
+    color:#1C2833;
 }
 
 #jouer:hover {
@@ -33,4 +41,65 @@ body{
     box-shadow: 0 8px 16px 0 #ff1616;
 }
 
-#questions{display: none;}
+li{
+    display:flex;
+    color: whitesmoke;
+    font-size:20px;
+}
+
+.artistes{
+    display: flex;
+    justify-content:start;
+    margin: none;
+    border:2px  #ffbd59 solid;
+    width:760px;
+    box-shadow: 0 8px 20px 0 #85C1E9 ;
+    margin-left:20px;
+    border-radius:20px;
+}
+
+
+/* Partie Questions */
+
+#questions{
+    display: none;
+}
+
+
+.questions{
+    display: none;
+    color: whitesmoke;
+    font-size:30px;
+    text-align:left;
+    margin-top: 350px;
+    margin-left: 200px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-style: italic;
+}
+
+#oui, #non{
+    border: solid 1px whitesmoke;
+    border-radius: 10px;
+    background:whitesmoke;
+    height: 50px;
+    width: 200px;
+    margin-left:auto;
+    margin-top:30px ;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    font-style: italic;
+    color:#1C2833;
+}
+
+
+#oui:hover, #non:hover {
+    border:solid 1px white;
+    background:#ffbd59;
+    box-shadow: 0 8px 16px 0 #ff1616;
+}
+
+#quest{
+    margin-left: 80px;
+    margin-bottom: 30px;
+}

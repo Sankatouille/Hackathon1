@@ -2,20 +2,51 @@
 
 {% block title %}HackinaWild{% endblock %}
 
-
 {% block content %}
 
 
 <div id="description">
-    <p> Penses à l'artiste de ton choix dans la liste ci-dessous<br> je vais essayer de le deviner ! </p>
+    <p> Penses à l'artiste de ton choix dans la liste ci-dessous, je vais essayer de le deviner ! </p>
 </div>
 
-<div id="questions">
+<div class="artistes">
+    <ul>
+    {% for i in 0..4 %}
+        <li>{{ artistes[i].nom }}<li>
+    {% endfor %}
+    </ul>
 
+    <ul>
+    {% for i in 5..9 %}
+        <li>{{ artistes[i].nom }}<li>
+    {% endfor %}
+    </ul>
+
+    <ul>
+    {% for i in 10..14 %}
+        <li>{{ artistes[i].nom }}<li>
+    {% endfor %}
+    </ul>
+
+    <ul>
+    {% for i in 15..19 %}
+        <li>{{ artistes[i].nom }}<li>
+    {% endfor %}
+    </ul>
 </div>
-<form method="post">
-    <button id="jouer">► Jouer</button>
+
+
+<form method="POST" action="game/ask">
+    <div class="questions">
+
+    <div id="quest">{{question1.question}}</div>
+        <button name = "oui" id="oui">Oui</button>
+        <button name = "non" id="non">Non</button>
+    </div>
 </form>
+    <button id="jouer">► Jouer</button>
 
 
+
+<script src="/assets/js/script.js" defer></script>
 {% endblock %}
